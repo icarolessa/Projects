@@ -1,0 +1,11 @@
+{
+  "name": "funcionarios",
+  "version": "0.0.1",
+  "description": "Cadastro de funcionarios",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "icarolessa",
+  "license": "ISC"
+}
