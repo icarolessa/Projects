@@ -1,8 +1,9 @@
 const fs = require('fs')
+//const filePath = require('../base/baseFuncionarios.json')
 const { join } = require('path')
-const filePath = join(__dirname + 'baseFuncionarios.json')
+const filePath = join('/home/icaro/Documentos/Programação/Github/Projects/Funcionarios/base/baseFuncionarios.json')
 
-// método para analisar se existe base de dados
+// método para converter base para json
 const getFuncionarios = () => {
     const data = fs.existsSync(filePath)
     ? fs.readFileSync(filePath)
@@ -22,6 +23,10 @@ const menorSalario = (acumulador, salarioAtual) => {
 }
 const maiorSalario = (acumulador, salarioAtual) => {
     return acumulador.salario > salarioAtual.salario ? acumulador : salarioAtual
+}
+
+const saveFuncionario = (funcionario) => {
+    fs.writeFileSync(filePath, JSON.stringify(funcionario))
 }
 
 // Definindo rotas
@@ -45,8 +50,15 @@ const funcionarioRouter = (app) => {
         res.send(data)
     })
 
-    app.post('/', (req, res) => {
-        res.send('Rota post ativada')
+    app.post('/funcionarios/cadastro', (req, res) => {
+        const basefuncionario = getFuncionarios()
+        
+        console.log(req.body)
+        basefuncionario.push(req.body)
+        
+        saveFuncionario(basefuncionario)
+
+        return res.json(req.body)
     })
 }
 

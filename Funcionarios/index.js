@@ -6,5 +6,5 @@ const port = 3000
 routeFuncionario(app)
 
 app.listen(port, () => {
-    console.log('Server on')
+    console.log(`Server on in port ${port}`)
 })
