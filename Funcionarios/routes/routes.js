@@ -1,7 +1,7 @@
 const fs = require('fs')
 //const filePath = require('../base/baseFuncionarios.json')
 const { join } = require('path')
-const filePath = join('/home/icaro/Documentos/Programação/Github/Projects/Funcionarios/base/baseFuncionarios.json')
+const filePath = join('./baseFuncionarios.json')
 
 // método para converter base para json
 const getFuncionarios = () => {
