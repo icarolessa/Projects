@@ -1,7 +1,5 @@
 const fs = require('fs')
-//const filePath = require('../base/baseFuncionarios.json')
-const { join } = require('path')
-const filePath = join('./baseFuncionarios.json')
+const filePath = '../base/baseFuncionarios.json'
 
 // método para converter base para json
 const getFuncionarios = () => {
@@ -16,6 +14,7 @@ const getFuncionarios = () => {
     }
 }
 
+// variáveis para filtro de pesquisa
 const pais = func => func.pais === 'China'
 const genero = func => func.genero === 'F'
 const menorSalario = (acumulador, salarioAtual) => {
@@ -25,6 +24,7 @@ const maiorSalario = (acumulador, salarioAtual) => {
     return acumulador.salario > salarioAtual.salario ? acumulador : salarioAtual
 }
 
+// método para gravar informação no json
 const saveFuncionario = (funcionario) => {
     fs.writeFileSync(filePath, JSON.stringify(funcionario))
 }
