@@ -9,15 +9,15 @@ const server = express();
 server.use(cors());
 server.use(bodyParser.json());
 server.use(cookieParser());
-server.use('/Pages', express.static(__dirname + '/Pages'));
+server.use('/pages', express.static(__dirname + '/pages'));
 const port = 3000;
 
 // Config Database
-const Database = require('./Database');
+const Database = require('./database');
 
 // Rotas
 server.get('/', (req, res) => {
-    res.sendFile(__dirname + '/Pages/Index/index.html')
+    res.sendFile(__dirname + '/pages/index/index.html')
 })
 
 server.get('/privado', (req, res) => {
