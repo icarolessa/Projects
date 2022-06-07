@@ -25,8 +25,8 @@ server.get('/', (req, res) => {
     res.sendFile(__dirname + '/pages/index/index.html')
 })
 
-server.get('/logar', async (req, res) => {
-    res.send(await logar(res.body));
+server.post('/logar', async (req, res) => {
+    res.send(await logar(req.body));
 })
 
 server.get('/deslogar', async (req, res) => {
