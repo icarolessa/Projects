@@ -33,7 +33,7 @@ server.get('/deslogar', async (req, res) => {
     res.send(await deslogar());
 })
 
-server.get('/privado', (req, res) => {
+server.get('/privado', logado, (req, res) => {
     res.send('Somente usuários logados podem ver essa página')
 })
 
