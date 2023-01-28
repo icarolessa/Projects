@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .texto{
+                width: 100px;
+                height: 100px;
+                text-align: center;
+                display: absolute;
+                align-items: center;
+                justify-content: center;
+                background: #ff6a00;
+                color: rgb(255, 255, 255);
+            }
+        </style>
+    </head>
+    <title>
 
+    </title>
+    <body>
+        <div class="texto"><b>DISCO VOADOR</b></div>
+        <script>
+            //criando variável para manipular elemento
+            const item = document.querySelector('div')
+            //fixando item
+            item.style.position = 'absolute'
+            item.onmousemove = e => {
+                const evento = e.target
+                evento.style.cursor = 'move'
+                if(e.buttons){
+                    evento.style.top = `${e.clientY - (evento.clientHeight / 2)}px`
+                    evento.style.left = `${e.clientX - (evento.clientWidth / 2)}px`
+                }
+            }
+        </script>
+    </body>
+</html>
